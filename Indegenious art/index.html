@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Assisted Indigenous Art Collection of India</title>
+
+  <!-- Google Fonts: Playfair Display (headings) + Lato (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Our stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-symbol">✦</span>
+      <span>Kala Darshan</span>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#map">Map</a></li>
+      <li><a href="#artforms">Art Forms</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#ai">AI Guide</a></li>
+      <li><a href="#literature">Research</a></li>
+      <li><a href="#references">Resources</a></li>
+      <li><a href="#submit">Submit Art</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">A Digital Cultural Exhibition</p>
+      <h1 class="hero-title">Indigenous Art<br /><em>Collection of India</em></h1>
+      <p class="hero-subtitle">
+        Explore the living traditions of Warli, Madhubani &amp; Kasuti —<br />
+        storytelling woven into pigment, mud, and thread.
+      </p>
+      <div class="hero-buttons">
+        <a href="#artforms" class="btn btn-primary">Explore Art Forms</a>
+        <a href="#ai" class="btn btn-outline">Ask the AI Guide</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">↓ Scroll to explore</div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Heritage & Identity</p>
+        <h2 class="section-title">About Indigenous Art of India</h2>
+        <div class="divider-ornament">❦</div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <div class="about-icon">🎨</div>
+          <h3>Living Traditions</h3>
+          <p>
+            Indigenous art forms of India are not relics — they are living languages.
+            Passed through generations by word of hand, these traditions encode cosmology,
+            ritual, ecology, and identity within every stroke and stitch.
+          </p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">🌿</div>
+          <h3>Natural Materials</h3>
+          <p>
+            Practitioners use mud, rice paste, natural dyes, plant fibres, and handspun
+            threads — materials sourced from the earth that connect the artwork to
+            its landscape and community.
+          </p>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">🏛️</div>
+          <h3>GI Protected Heritage</h3>
+          <p>
+            Several indigenous art forms carry Geographical Indication (GI) tags,
+            legally protecting their authenticity and ensuring that artisans receive
+            recognition and economic rights for their ancestral knowledge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INDIA MAP ===================== -->
+  <section class="section section-dark" id="map">
+    <div class="container">
+      <div class="section-header light">
+        <p class="section-label">Interactive Heritage Map</p>
+        <h2 class="section-title">Art Forms Across India</h2>
+        <div class="divider-ornament">❦</div>
+        <p class="section-desc">Click on a highlighted state to discover its indigenous art form.</p>
+      </div>
+
+      <div class="map-wrapper">
+        <!-- Simplified SVG India Map — only Maharashtra, Bihar, Karnataka highlighted -->
+        <svg id="indiaMap" viewBox="0 0 550 620" xmlns="http://www.w3.org/2000/svg"
+             aria-label="Clickable map of India showing art form states">
+
+          <!-- India rough outline (simplified decorative border) -->
+          <ellipse cx="275" cy="310" rx="240" ry="290" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+          <!-- ── MAHARASHTRA ── -->
+          <g class="map-state" id="state-maharashtra" data-art="warli"
+             tabindex="0" role="button" aria-label="Maharashtra – Warli Art">
+            <path d="M155,295 L195,275 L235,268 L255,280 L260,300 L250,330 L230,345 L205,350 L180,335 L160,315 Z"
+                  class="state-shape" />
+            <text x="205" y="315" class="state-label">Maharashtra</text>
+          </g>
+
+          <!-- ── BIHAR ── -->
+          <g class="map-state" id="state-bihar" data-art="madhubani"
+             tabindex="0" role="button" aria-label="Bihar – Madhubani Art">
+            <path d="M270,185 L305,178 L325,190 L320,215 L300,225 L275,220 L265,205 Z"
+                  class="state-shape" />
+            <text x="291" y="208" class="state-label">Bihar</text>
+          </g>
+
+          <!-- ── KARNATAKA ── -->
+          <g class="map-state" id="state-karnataka" data-art="kasuti"
+             tabindex="0" role="button" aria-label="Karnataka – Kasuti Embroidery">
+            <path d="M175,360 L210,355 L235,368 L240,395 L228,420 L210,435 L190,440 L170,425 L162,400 L165,375 Z"
+                  class="state-shape" />
+            <text x="198" y="400" class="state-label">Karnataka</text>
+          </g>
+
+          <!-- Non-highlighted state blobs for visual context -->
+          <g opacity="0.25" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="0.8">
+            <!-- Rajasthan -->
+            <path d="M120,160 L185,140 L210,155 L215,195 L190,215 L155,220 L120,200 Z"/>
+            <!-- UP -->
+            <path d="M215,155 L270,140 L305,150 L310,180 L265,188 L220,182 Z"/>
+            <!-- Andhra -->
+            <path d="M220,355 L265,345 L285,370 L278,410 L250,430 L225,420 L210,395 Z"/>
+            <!-- Tamil Nadu -->
+            <path d="M225,435 L255,430 L272,450 L265,490 L240,505 L220,490 L215,465 Z"/>
+            <!-- Kerala -->
+            <path d="M200,440 L218,438 L222,465 L218,495 L205,510 L195,490 L193,465 Z"/>
+            <!-- Gujarat -->
+            <path d="M100,220 L140,210 L150,245 L140,280 L115,285 L95,265 Z"/>
+            <!-- Punjab/HP -->
+            <path d="M155,100 L190,90 L210,108 L205,135 L175,140 L150,125 Z"/>
+            <!-- J&K -->
+            <path d="M155,55 L195,40 L215,60 L210,90 L180,100 L158,88 Z"/>
+            <!-- Odisha -->
+            <path d="M300,270 L335,260 L345,290 L335,320 L308,325 L295,300 Z"/>
+            <!-- WB -->
+            <path d="M310,200 L340,190 L348,215 L340,250 L315,255 L305,230 Z"/>
+            <!-- NE cluster -->
+            <path d="M360,160 L395,148 L410,168 L400,195 L370,198 L355,180 Z"/>
+            <!-- MP -->
+            <path d="M210,230 L270,220 L300,235 L298,270 L260,278 L215,270 Z"/>
+            <!-- Telangana -->
+            <path d="M245,315 L290,308 L300,335 L285,355 L255,355 L238,338 Z"/>
+          </g>
+
+          <!-- Compass rose -->
+          <g transform="translate(480,80)">
+            <circle r="20" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+            <text y="-8" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="8" font-family="Lato">N</text>
+            <text y="14" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Lato">S</text>
+            <text x="11" y="4" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Lato">E</text>
+            <text x="-11" y="4" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Lato">W</text>
+            <line x1="0" y1="-15" x2="0" y2="15" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <line x1="-15" y1="0" x2="15" y2="0" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+          </g>
+
+          <!-- Legend -->
+          <g transform="translate(380,480)">
+            <rect width="148" height="95" rx="6" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <text x="74" y="18" text-anchor="middle" fill="#d4a96a" font-size="9" font-family="Cinzel,serif" font-weight="600">ART FORMS</text>
+            <circle cx="18" cy="36" r="6" fill="#c0562a"/>
+            <text x="30" y="40" fill="#e8d5b0" font-size="9" font-family="Lato,sans-serif">Maharashtra · Warli</text>
+            <circle cx="18" cy="56" r="6" fill="#8b3a8f"/>
+            <text x="30" y="60" fill="#e8d5b0" font-size="9" font-family="Lato,sans-serif">Bihar · Madhubani</text>
+            <circle cx="18" cy="76" r="6" fill="#2a7a4b"/>
+            <text x="30" y="80" fill="#e8d5b0" font-size="9" font-family="Lato,sans-serif">Karnataka · Kasuti</text>
+          </g>
+        </svg>
+
+        <!-- Map info panel -->
+        <div class="map-info-panel" id="mapInfoPanel">
+          <p class="map-hint">← Click a highlighted state on the map</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ART FORMS ===================== -->
+  <section class="section" id="artforms">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">The Three Traditions</p>
+        <h2 class="section-title">Indigenous Art Forms</h2>
+        <div class="divider-ornament">❦</div>
+      </div>
+
+      <div class="art-cards-grid">
+
+        <!-- Warli -->
+        <div class="art-card" data-art="warli" tabindex="0" role="button" aria-label="Open Warli Art details">
+          <div class="art-card-color warli-color"></div>
+          <div class="art-card-body">
+            <span class="art-card-state">Maharashtra</span>
+            <h3 class="art-card-title">Warli Art</h3>
+            <p class="art-card-desc">
+              Ancient tribal paintings using geometric forms — circles, triangles,
+              and squares — to narrate scenes of daily life, harvest, and ritual on
+              mud-plastered walls.
+            </p>
+            <div class="art-card-tags">
+              <span class="tag">GI Tagged</span>
+              <span class="tag">Tribal</span>
+              <span class="tag">Wall Art</span>
+            </div>
+            <button class="btn btn-card">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Madhubani -->
+        <div class="art-card" data-art="madhubani" tabindex="0" role="button" aria-label="Open Madhubani Art details">
+          <div class="art-card-color madhubani-color"></div>
+          <div class="art-card-body">
+            <span class="art-card-state">Bihar</span>
+            <h3 class="art-card-title">Madhubani Art</h3>
+            <p class="art-card-desc">
+              Vivid paintings from the Mithila region depicting mythology, nature,
+              and social events with bold outlines, intricate fillings, and no
+              empty space left unpainted.
+            </p>
+            <div class="art-card-tags">
+              <span class="tag">GI Tagged</span>
+              <span class="tag">Mithila</span>
+              <span class="tag">Mythology</span>
+            </div>
+            <button class="btn btn-card">View Details →</button>
+          </div>
+        </div>
+
+        <!-- Kasuti -->
+        <div class="art-card" data-art="kasuti" tabindex="0" role="button" aria-label="Open Kasuti Art details">
+          <div class="art-card-color kasuti-color"></div>
+          <div class="art-card-body">
+            <span class="art-card-state">Karnataka</span>
+            <h3 class="art-card-title">Kasuti Embroidery</h3>
+            <p class="art-card-desc">
+              A traditional needlework from northern Karnataka, featuring intricate
+              geometric patterns inspired by temples, palanquins, and lotus motifs,
+              worked entirely without knots.
+            </p>
+            <div class="art-card-tags">
+              <span class="tag">GI Tagged</span>
+              <span class="tag">Embroidery</span>
+              <span class="tag">Textile</span>
+            </div>
+            <button class="btn btn-card">View Details →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ART DETAIL MODAL ===================== -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+      <div class="modal-content" id="modalContent">
+        <!-- Injected by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="section section-muted" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Curated Collection</p>
+        <h2 class="section-title">Art Gallery</h2>
+        <div class="divider-ornament">❦</div>
+        <p class="section-desc">A selection of representative works from each tradition.</p>
+      </div>
+
+      <!-- Gallery Filter Buttons -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="warli">Warli</button>
+        <button class="filter-btn" data-filter="madhubani">Madhubani</button>
+        <button class="filter-btn" data-filter="kasuti">Kasuti</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- Warli images (using placeholder art-style colored divs + descriptions) -->
+        <div class="gallery-item" data-category="warli">
+          <div class="gallery-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Warli_painting_1.jpg/400px-Warli_painting_1.jpg"
+                 alt="Warli village scene painting" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x300/c8a96e/5c2d00?text=Warli+Art'"/>
+            <div class="gallery-overlay"><span>Warli Village Scene</span></div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Village Scene</strong>
+            <span>Warli · Maharashtra</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="warli">
+          <div class="gallery-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Warli_Painting.jpg/400px-Warli_Painting.jpg"
+                 alt="Warli harvest dance" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x300/c8a96e/5c2d00?text=Warli+Dance'"/>
+            <div class="gallery-overlay"><span>Harvest Dance (Tarpa)</span></div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Harvest Dance</strong>
+            <span>Warli · Maharashtra</span>
+          </div>
+        </div>
+
+        <!-- Madhubani images -->
+        <div class="gallery-item" data-category="madhubani">
+          <div class="gallery-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Madhubani_painting_fish.jpg/400px-Madhubani_painting_fish.jpg"
+                 alt="Madhubani fish motif" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x300/8b3a8f/f0d6f5?text=Madhubani+Art'"/>
+            <div class="gallery-overlay"><span>Fish Motif – Auspicious Symbol</span></div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Sacred Fish Motif</strong>
+            <span>Madhubani · Bihar</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="madhubani">
+          <div class="gallery-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Madhubani_art.jpg/400px-Madhubani_art.jpg"
+                 alt="Madhubani tree of life" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x300/8b3a8f/f0d6f5?text=Tree+of+Life'"/>
+            <div class="gallery-overlay"><span>Tree of Life</span></div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Tree of Life</strong>
+            <span>Madhubani · Bihar</span>
+          </div>
+        </div>
+
+        <!-- Kasuti images -->
+        <div class="gallery-item" data-category="kasuti">
+          <div class="gallery-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kasuti_embroidery.jpg/400px-Kasuti_embroidery.jpg"
+                 alt="Kasuti embroidery detail" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x300/2a7a4b/d4f5e0?text=Kasuti+Embroidery'"/>
+            <div class="gallery-overlay"><span>Kasuti Temple Motif</span></div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Temple Motif</strong>
+            <span>Kasuti · Karnataka</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="kasuti">
+          <div class="gallery-img-wrap">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Kasuti_work.jpg/400px-Kasuti_work.jpg"
+                 alt="Kasuti lotus pattern" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x300/2a7a4b/d4f5e0?text=Kasuti+Lotus'"/>
+            <div class="gallery-overlay"><span>Lotus &amp; Palanquin Pattern</span></div>
+          </div>
+          <div class="gallery-caption">
+            <strong>Lotus Pattern</strong>
+            <span>Kasuti · Karnataka</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AI ASSISTANT ===================== -->
+  <section class="section section-dark" id="ai">
+    <div class="container">
+      <div class="section-header light">
+        <p class="section-label">Powered by Google Gemini</p>
+        <h2 class="section-title">AI Cultural Guide</h2>
+        <div class="divider-ornament">❦</div>
+        <p class="section-desc">Ask anything about Warli, Madhubani, or Kasuti art.</p>
+      </div>
+
+      <div class="ai-wrapper">
+        <div class="ai-chatbox" id="aiChatbox">
+          <div class="ai-welcome">
+            <span class="ai-avatar">🪔</span>
+            <p>Namaste! I am your AI Cultural Guide. Ask me about the history, technique, or cultural significance of these art forms.</p>
+          </div>
+        </div>
+
+        <!-- Suggested prompts -->
+        <div class="ai-suggestions">
+          <span class="suggestion-label">Try asking:</span>
+          <button class="suggestion-pill" data-q="What is Warli art and where did it originate?">What is Warli art?</button>
+          <button class="suggestion-pill" data-q="Explain Madhubani painting style and its cultural significance.">About Madhubani</button>
+          <button class="suggestion-pill" data-q="What is Kasuti embroidery and which state is it from?">Kasuti Embroidery</button>
+          <button class="suggestion-pill" data-q="What is the difference between Warli and Madhubani art?">Warli vs Madhubani</button>
+        </div>
+
+        <div class="ai-input-row">
+          <!-- ⚠️  INSERT YOUR GEMINI API KEY IN script.js (GEMINI_API_KEY variable) -->
+          <input type="text" id="aiInput" class="ai-input"
+                 placeholder="Ask about an art form… e.g., 'What materials does Warli use?'" />
+          <button class="btn btn-primary" id="aiAskBtn">Ask AI</button>
+        </div>
+
+        <p class="ai-note">
+          ⚠️ Add your free Gemini API key in <code>script.js</code> to enable AI responses.
+          Get one free at <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LITERATURE SURVEY ===================== -->
+  <section class="section" id="literature">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Academic Foundation</p>
+        <h2 class="section-title">Literature Survey</h2>
+        <div class="divider-ornament">❦</div>
+        <p class="section-desc">Research and academic sources that informed this project.</p>
+      </div>
+
+      <div class="literature-grid">
+
+        <div class="lit-card">
+          <div class="lit-number">01</div>
+          <div class="lit-body">
+            <h3>"Adaptation and Development of Designs Inspired from Warli Art"</h3>
+            <p class="lit-source">📖 Source: International Journal of Applied Research, 2017</p>
+            <p class="lit-summary">
+              This paper examines how Warli's geometric vocabulary — circles, triangles, and dots —
+              is being adapted into contemporary textile and product design while maintaining
+              its tribal identity. The study explores the tension between commercialisation and
+              cultural preservation.
+            </p>
+            <div class="lit-insight">
+              <strong>Key Insight:</strong> Geometric minimalism is Warli's core language.
+              Adaptation must preserve community ownership.
+            </div>
+          </div>
+        </div>
+
+        <div class="lit-card">
+          <div class="lit-number">02</div>
+          <div class="lit-body">
+            <h3>"The Study of Indian Art and Culture – Madhubani"</h3>
+            <p class="lit-source">📖 Source: Shodhganga Repository, Lalit Kala Akademi Archives</p>
+            <p class="lit-summary">
+              A comprehensive cultural study of Madhubani painting traditions in the Mithila
+              region of Bihar, documenting the role of women artists, the shift from mud walls
+              to paper/canvas, and the development of sub-styles such as Bharni, Kachni,
+              Tantrik, Godna, and Kohbar.
+            </p>
+            <div class="lit-insight">
+              <strong>Key Insight:</strong> Madhubani is matrilineal — passed from mother to
+              daughter — and each sub-style carries distinct ritual functions.
+            </div>
+          </div>
+        </div>
+
+        <div class="lit-card">
+          <div class="lit-number">03</div>
+          <div class="lit-body">
+            <h3>"Kasuti Embroidery: History, Raw Materials and Tools"</h3>
+            <p class="lit-source">📖 Source: Textile Design Journal, Dharwad University, Karnataka</p>
+            <p class="lit-summary">
+              This study documents the four primary Kasuti stitching techniques — Gavanti,
+              Murgi, Negi, and Menthi — along with raw materials (silk thread, cotton fabric)
+              and the socio-cultural context in which Kasuti garments were produced for
+              wedding trousseaux in northern Karnataka.
+            </p>
+            <div class="lit-insight">
+              <strong>Key Insight:</strong> Kasuti is made without knots — a feat of skill
+              that demands both artistic precision and cultural knowledge.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REFERENCES ===================== -->
+  <section class="section section-muted" id="references">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Explore Further</p>
+        <h2 class="section-title">Cultural Resources</h2>
+        <div class="divider-ornament">❦</div>
+      </div>
+
+      <div class="resources-grid">
+
+        <a class="resource-card" href="https://ich.unesco.org" target="_blank" rel="noopener">
+          <div class="resource-icon">🌐</div>
+          <h4>UNESCO Intangible Cultural Heritage</h4>
+          <p>Global registry protecting living cultural expressions, traditions, and performing arts.</p>
+          <span class="resource-link">Visit UNESCO →</span>
+        </a>
+
+        <a class="resource-card" href="https://indiaculture.gov.in" target="_blank" rel="noopener">
+          <div class="resource-icon">🏛️</div>
+          <h4>Ministry of Culture, India</h4>
+          <p>Official government portal for Indian art schemes, grants, and cultural preservation programs.</p>
+          <span class="resource-link">Visit MoC →</span>
+        </a>
+
+        <a class="resource-card" href="https://www.ignca.gov.in" target="_blank" rel="noopener">
+          <div class="resource-icon">📚</div>
+          <h4>IGNCA</h4>
+          <p>Indira Gandhi National Centre for the Arts — archives, manuscripts, and art documentation.</p>
+          <span class="resource-link">Visit IGNCA →</span>
+        </a>
+
+        <a class="resource-card" href="https://artsandculture.google.com" target="_blank" rel="noopener">
+          <div class="resource-icon">🖼️</div>
+          <h4>Google Arts &amp; Culture</h4>
+          <p>High-resolution digital reproductions of artworks from museums and galleries worldwide.</p>
+          <span class="resource-link">Explore →</span>
+        </a>
+
+        <a class="resource-card" href="https://www.sahapedia.org" target="_blank" rel="noopener">
+          <div class="resource-icon">📖</div>
+          <h4>Sahapedia</h4>
+          <p>Open encyclopaedic resource on Indian culture — arts, crafts, music, architecture, and food.</p>
+          <span class="resource-link">Visit Sahapedia →</span>
+        </a>
+
+        <a class="resource-card" href="https://www.nationalmuseumindia.gov.in" target="_blank" rel="noopener">
+          <div class="resource-icon">🏺</div>
+          <h4>National Museum, India</h4>
+          <p>New Delhi's premier institution housing over 200,000 works spanning 5,000 years of culture.</p>
+          <span class="resource-link">Visit Museum →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SUBMISSION FORM ===================== -->
+  <section class="section" id="submit">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Share Your Heritage</p>
+        <h2 class="section-title">Submit Indigenous Artwork</h2>
+        <div class="divider-ornament">❦</div>
+        <p class="section-desc">Help expand this collection by contributing artwork from your community.</p>
+      </div>
+
+      <div class="form-wrapper">
+        <div class="submission-form" id="submissionForm">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="artistName">Artist Name <span class="required">*</span></label>
+              <input type="text" id="artistName" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="community">Community / Tribe <span class="required">*</span></label>
+              <input type="text" id="community" placeholder="e.g., Warli tribe, Mithila community" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="state">State <span class="required">*</span></label>
+              <select id="state">
+                <option value="">Select state…</option>
+                <option>Maharashtra</option>
+                <option>Bihar</option>
+                <option>Karnataka</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="artFormName">Art Form Name <span class="required">*</span></label>
+              <input type="text" id="artFormName" placeholder="e.g., Warli, Madhubani, Kasuti" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="artDesc">Artwork Description <span class="required">*</span></label>
+            <textarea id="artDesc" rows="4" placeholder="Describe the artwork, its subjects, and creation process…" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="cultural">Cultural Significance</label>
+            <textarea id="cultural" rows="3" placeholder="What ritual, occasion, or belief is this artwork connected to?"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Contact Email</label>
+              <input type="email" id="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="imageUpload">Upload Artwork Image</label>
+              <input type="file" id="imageUpload" accept="image/*" class="file-input"/>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-submit" id="submitBtn">Submit Artwork</button>
+        </div>
+
+        <!-- Success message (hidden by default) -->
+        <div class="submit-success" id="submitSuccess" style="display:none;">
+          <span class="success-icon">🙏</span>
+          <h3>Thank you for your contribution!</h3>
+          <p>Your artwork submission has been sent for cultural review. Our team will reach out if your work is selected for the collection.</p>
+          <button class="btn btn-outline" id="submitAnother">Submit Another</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-pattern"></div>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-symbol">✦</span>
+        <h3>Kala Darshan</h3>
+        <p>AI-Assisted Indigenous Art Collection of India</p>
+        <p class="footer-credit">A mini project by engineering students · Powered by Google Gemini API</p>
+      </div>
+      <div class="footer-links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#artforms">Art Forms</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#ai">AI Guide</a></li>
+          <li><a href="#literature">Research</a></li>
+          <li><a href="#submit">Submit</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Art Forms</h4>
+        <ul>
+          <li>Warli · Maharashtra</li>
+          <li>Madhubani · Bihar</li>
+          <li>Kasuti · Karnataka</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Kala Darshan · Made with reverence for India's living heritage</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
